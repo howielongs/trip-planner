@@ -1,0 +1,122 @@
+.cover-page {
+    display: flex;
+    height: 100vh;
+    background: linear-gradient(135deg, #2D2D72, #6C41E3); /* Fallback background */
+  }
+  
+  .cover-left {
+    flex: 1;
+    background-color: #000000; /* Black left half */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 5rem; /* Adds space for padding */
+    color: white;
+  }
+  
+  .cover-right {
+    flex: 1;
+    background-color: #6C41E3; /* Purple right half */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cover-right::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1));
+    transform: rotate(45deg);
+    transform-origin: top left;
+  }
+  
+  .cover-image {
+    width: 60%;
+    height: auto;
+    border: 10px solid white; /* White border around the image */
+    border-radius: 20px; /* Rounded corners for the image */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow for image depth */
+    animation: fadeInImage 1s ease-in forwards; /* Animation for fade-in */
+    opacity: 0; /* Initial state for fade-in */
+    z-index: 2;
+  }
+  
+  .title {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+  
+  .start-button {
+    font-size: 1.5rem;
+    padding: 0.75rem 2rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+  }
+  
+  .start-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Fade-in animation for the image */
+  @keyframes fadeInImage {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2D2D72;
+    padding: 1rem 2rem;
+  }
+  
+  .nav-logo {
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .nav-link, .nav-button {
+    font-size: 1rem;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+  }
+  
+  .nav-button:hover, .nav-link:hover {
+    background-color: #6C41E3;
+    border-radius: 5px;
+  }
+  
+  
