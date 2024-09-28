@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/ItineraryPage.css';  // Style the itinerary page here
+import MapComponent from '../components/MapComponent';  // Import the new map component
 
 const ItineraryView = () => {
   return (
@@ -28,7 +29,7 @@ const ItineraryView = () => {
       </div>
 
       <div className="right-panel">
-        <div className="map-placeholder">Map Area</div>
+        <MapComponent />  {/* Replaces the placeholder with the actual map */}
       </div>
     </div>
   );
