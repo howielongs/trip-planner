@@ -5,28 +5,35 @@ import MapComponent from '../components/MapComponent'; // Google Maps Component
 
 const Itinerary = () => {
   const [tripTitle, setTripTitle] = useState('Trip to San Francisco'); // State for the trip title
-  const [activities, setActivities] = useState([
-    { id: 1, name: "Brunch at 4 Seasons", time: "10:00 AM - 11:30 AM", transport: "Uber", completed: true },
-    { id: 2, name: "Hike at Mt. Tam", time: "12:00 PM - 2:30 PM", transport: "Train", completed: true },
-    { id: 3, name: "Shopping at Valley Fair", time: "3:00 PM - 5:30 PM", completed: false },
-  ]);
+  const [markers, setMarkers] = useState([]); // State to track map markers
 
   const handleTitleChange = (e) => {
     setTripTitle(e.target.value);
   };
 
-  const handleActivityChange = (id) => {
-    setActivities((prevActivities) =>
-      prevActivities.map((activity) =>
-        activity.id === id ? { ...activity, completed: !activity.completed } : activity
-      )
-    );
+  // Function to add a marker to the map
+  const handleAddMapMarker = (location) => {
+    if (typeof location === 'string') {
+      // Geocode string address
+      const geocoder = new window.google.maps.Geocoder();
+      geocoder.geocode({ address: location }, (results, status) => {
+        if (status === 'OK' && results[0]) {
+          const { lat, lng } = results[0].geometry.location;
+          setMarkers((prevMarkers) => [...prevMarkers, { lat: lat(), lng: lng() }]);
+        } else {
+          console.error('Geocode was not successful for the following reason:', status);
+        }
+      });
+    } else if (location.lat && location.lng) {
+      // Add directly if lat/lng is provided
+      setMarkers((prevMarkers) => [...prevMarkers, location]);
+    }
   };
 
   return (
     <div className="itinerary-page">
       {/* Sidebar */}
-      <Sidebar locations={activities.map((activity) => activity.name)} />
+      <Sidebar onAddMapMarker={handleAddMapMarker} />
 
       {/* Main Content */}
       <main className="main-content">
@@ -41,24 +48,8 @@ const Itinerary = () => {
           <button className="add-dates-button">Add Trip Dates</button>
         </header>
 
-        <section className="activities-section">
-          <h2>Your Itinerary</h2>
-          {activities.map((activity) => (
-            <div key={activity.id} className="activity-item">
-              <span>{activity.name}</span>
-              <span>{activity.time}</span>
-              <span>{activity.transport}</span>
-              <input
-                type="checkbox"
-                checked={activity.completed}
-                onChange={() => handleActivityChange(activity.id)}
-              />
-            </div>
-          ))}
-        </section>
-
         <section className="map-section">
-          <MapComponent />
+          <MapComponent markers={markers} />
         </section>
       </main>
     </div>

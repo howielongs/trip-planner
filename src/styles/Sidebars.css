@@ -1,35 +1,146 @@
+/* Sidebar */
 .sidebar {
-  width: 250px;
-  background-color: #f7f7f7;
-  padding: 20px;
+  display: flex;
+  width: 300px;
+  min-height: 100vh;
+  background-color: #f8f9fa;
   border-right: 1px solid #ddd;
-  height: 100vh;
   font-family: Arial, sans-serif;
 }
 
-.sidebar h3 {
-  font-size: 1.25rem;
-  margin-bottom: 15px;
+/* Navigation */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  background-color: #ffffff;
+  border-right: 1px solid #ddd;
+}
+
+.nav-item {
+  padding: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: left;
+  color: #333;
+}
+
+.nav-item.active {
+  background-color: #007bff;
+  color: white;
   font-weight: bold;
 }
 
-.sidebar nav ul {
-  list-style: none;
-  padding: 0;
+/* Content Section */
+.sidebar-content {
+  width: 70%;
+  padding: 10px;
+  overflow-y: auto;
 }
 
-.sidebar nav ul li {
-  margin-bottom: 10px;
-  color: #555;
-  cursor: pointer;
+.scrollable-content {
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
 }
 
-.sidebar nav ul li:hover {
-  color: #007bff;
+/* Places to Visit */
+.places-to-visit-container {
+  display: flex;
+  flex-direction: column;
 }
 
-.sidebar p {
+.search-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.search-bar button {
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.places-list {
   margin-bottom: 20px;
-  font-size: 0.9rem;
-  color: #777;
+}
+
+.place-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #f8f9fa;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+.place-item button.delete-button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.place-item button.delete-button:hover {
+  background-color: #cc0000;
+}
+
+/* Suggested Locations */
+.suggested-locations h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.carousel {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+}
+
+.carousel-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  min-width: 120px;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.carousel-info {
+  margin-top: 5px;
+  text-align: center;
+}
+
+.carousel-info button {
+  margin-top: 5px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.carousel-info button:hover {
+  background-color: #0056b3;
 }

@@ -126,4 +126,34 @@
   font-size: 0.9rem;
 }
 
+.add-location {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.add-location-input {
+  flex-grow: 1;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.add-location-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.add-location-button:hover {
+  background-color: #0056b3;
+}
+
+
 
