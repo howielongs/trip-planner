@@ -48,5 +48,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "Trip Planner ---- A dynamic web application designed to help users plan trips around the Bay Area by suggesting locations based on their preferences. The app integrates Google Maps for location visualization and stores user-explorable places in an SQL database. This project uses a React front-end for a seamless user experience and incorporates UX design principles for intuitive navigation."
 }

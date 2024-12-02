@@ -3,7 +3,7 @@ import '../styles/ItineraryPage.css';
 import Sidebar from '../components/Sidebars'; // Import the Sidebar
 import MapComponent from '../components/MapComponent'; // Google Maps Component
 
-const Itinerary = () => {
+const Itinerary = ({user}) => {
   const [tripTitle, setTripTitle] = useState('Trip to San Francisco'); // State for the trip title
   const [markers, setMarkers] = useState([]); // State to track map markers
 
@@ -33,7 +33,10 @@ const Itinerary = () => {
   return (
     <div className="itinerary-page">
       {/* Sidebar */}
-      <Sidebar onAddMapMarker={handleAddMapMarker} />
+      <Sidebar 
+        onAddMapMarker={handleAddMapMarker} 
+        user={user} 
+      />
 
       {/* Main Content */}
       <main className="main-content">

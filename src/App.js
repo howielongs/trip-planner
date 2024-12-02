@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import CoverPageView from './pages/CoverPageView';
 import PlanTripPage from './components/PlanTripPage'; // Import PlanTripPage
 import ItineraryPage from './components/ItineraryPage';
-import Login from './components/Login'; // Import the Login component
+import ItineraryView from './pages/ItineraryView';
+import Login from './components/Login';  // Import the Login component
+import Itinerary from './components/Itinerary';
 
 const App = () => {
+  const [user, setUser] = useState(null);
+
   return (
     <Router>
       <div>
@@ -21,8 +25,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<CoverPageView />} />
           <Route path="/plan" element={<PlanTripPage />} /> {/* Add Plan Trip route */}
-          <Route path="/itinerary" element={<ItineraryPage />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/itinerary" element={<ItineraryPage user={user} />} />
+          <Route path="/login" element={<Login onUserChange={setUser} />} />  {/* Add Login route */}
         </Routes>
       </div>
     </Router>

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../styles/Sidebars.css';
 import fisherman from '../assets/fisher.png';
 import bridge from '../assets/bridge.png';
@@ -7,36 +7,64 @@ import location1 from '../assets/location1.png';
 import location2 from '../assets/location2.png';
 import location3 from '../assets/location3.png';
 
-const Sidebars = ({ onAddMapMarker }) => {
+const Sidebars = ({ onAddMapMarker, user }) => {
   const [selectedTab, setSelectedTab] = useState('Explore');
   const [placesToVisit, setPlacesToVisit] = useState([]);
   const [searchInput, setSearchInput] = useState('');
   const [tripName, setTripName] = useState('');
   const [savedTrips, setSavedTrips] = useState([]);
   const [notes, setNotes] = useState('');
-  const [suggestedLocations, setSuggestedLocations] = useState([
-    {
-      id: 1,
-      image: fisherman,
-      title: "Fisherman's Wharf",
-      description: 'Bustling waterfront area with restaurants and shopping.',
-      location: { lat: 37.808, lng: -122.417 }, // Add valid latitude and longitude
-    },
-    {
-      id: 2,
-      image: bridge,
-      title: 'Golden Gate Bridge',
-      description: 'Vantage point offering stunning views.',
-      location: { lat: 37.8199, lng: -122.4783 },
-    },
-    {
-      id: 3,
-      image: prison,
-      title: 'Alcatraz Island',
-      description: 'Notorious former prison with historic tours.',
-      location: { lat: 37.8267, lng: -122.423 },
-    },
-  ]);
+  const [suggestedLocations, setSuggestedLocations] = useState([]);
+
+  //grab suggestions
+  useEffect(() => {
+    fetch("http://localhost:3000/suggestions")
+      .then((response) => response.json())
+      .then((data) => {
+
+  
+        const transformedLocations = data.map((item) => ({
+          id: item.suggestion_id,
+          image: item.imageurl,
+          title: item.location_name,
+          description: item.description,
+          location: { lat: 0, lng: 0 }, //need to add long and lat columns and data
+        }));
+  
+        setSuggestedLocations(transformedLocations);
+      })
+      .catch((error) => console.error("Error fetching suggestions:", error));
+  }, []);
+
+  //grab saved trips
+
+  useEffect(() => {
+    const user_id = 1; // Replace with the actual user ID you want to send
+  
+    fetch(`http://localhost:3000/${user_id}/itineraries`, { // Dynamically insert user_id into the URL
+      method: 'GET', // Use GET as per your backend route
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Failed to fetch itineraries');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        if (Array.isArray(data)) {
+          setSavedTrips(data); // Update the state with the fetched itineraries
+          console.log(data); // Debugging: log the fetched data
+        } else {
+          console.error('API response is not an array:', data);
+        }
+      })
+      .catch((error) => console.error('Error fetching itineraries:', error));
+  }, []); 
+  
+  
 
   const autocompleteRef = useRef(null);
 
@@ -168,21 +196,21 @@ const Sidebars = ({ onAddMapMarker }) => {
               <button onClick={handleSaveTrip}>Save Trip</button>
             </div>
 
-            <div className="recommended-places">
-              <h3>Recommended Places</h3>
-              <div className="carousel">
-                {suggestedLocations.map((location) => (
-                  <div key={location.id} className="carousel-item">
-                    <img src={location.image} alt={location.title} />
-                    <div className="carousel-info">
-                      <p>{location.title}</p>
-                      <p>{location.description}</p>
-                      <button onClick={() => handleAddPlace(location)}>+</button>
-                    </div>
+          <div className="recommended-places">
+            <h3>Recommended Places</h3>
+            <div className="carousel">
+              {suggestedLocations.map((location) => (
+                <div key={location.id} className="carousel-item">
+                  <img src={location.image} alt={location.title} />
+                  <div className="carousel-info">
+                    <p>{location.title}</p>
+                    <p>{location.description}</p>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
+          </div>
+
           </div>
         );
       }
@@ -190,18 +218,20 @@ const Sidebars = ({ onAddMapMarker }) => {
       case 'Itinerary': {
         return (
           <div className="itinerary-section">
-            <h3>Your Itineraries</h3>
-            {savedTrips.map((trip) => (
-              <div key={trip.id} className="saved-trip-item">
-                <h4>{trip.name}</h4>
-                <ul>
-                  {trip.places.map((place) => (
-                    <li key={place.id}>{place.title}</li>
-                  ))}
-                </ul>
+          <h3>Your Itineraries</h3>
+          {savedTrips.length > 0 ? (
+            savedTrips.map((itinerary) => (
+              <div key={itinerary.itinerary_id} className="itinerary-item">
+                <h4>{itinerary.itinerary_name}</h4>
+                <p>Start Date: {itinerary.start_date}</p>
+                <p>End Date: {itinerary.end_date}</p>
+                <p>Trip Length: {itinerary.trip_length} days</p>
               </div>
-            ))}
-          </div>
+            ))
+          ) : (
+            <p>No itineraries found.</p>
+          )}
+        </div>
         );
       }
 
