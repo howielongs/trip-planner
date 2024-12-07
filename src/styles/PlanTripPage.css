@@ -1,93 +1,92 @@
 .plan-trip-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #ffffff; /* Updated background for cleaner look */
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .plan-trip-header {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 2rem; /* Increased spacing for better visual hierarchy */
-    color: #333333;
-  }
-  
-  .plan-trip-form {
-    width: 100%;
-    max-width: 600px;
-    background-color: #ffffff;
-    border: 1px solid #e6e6e6;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-  }
-  
-  .plan-trip-form label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
-    font-size: 1rem;
-    color: #333333;
-  }
-  
-  .plan-trip-form select,
-  .plan-trip-form input {
-    width: 100%;
-    padding: 0.85rem;
-    margin-bottom: 1.5rem;
-    border: 1px solid #cccccc;
-    border-radius: 8px;
-    font-size: 1rem;
-    color: #333333;
-    transition: box-shadow 0.3s ease, border-color 0.3s ease;
-  }
-  
-  .plan-trip-form select:focus,
-  .plan-trip-form input:focus {
-    outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
-  }
-  
-  .plan-trip-button {
-    display: block;
-    width: 100%;
-    padding: 1rem;
-    background-color: #ce3ef2; /* Changed to match the red button style */
-    color: #ffffff;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    cursor: pointer;
-    text-align: center;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .plan-trip-button:hover {
-    background-color: #a12ee4;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  .plan-trip-footer {
-    margin-top: 2rem;
-    text-align: center;
-    font-size: 0.9rem;
-    color: #777777;
-  }
-  
-  .plan-trip-footer span {
-    margin: 0 10px;
-    cursor: pointer;
-    font-weight: bold;
-    color: #555555;
-    transition: color 0.3s ease;
-  }
-  
-  .plan-trip-footer span:hover {
-    color: #007bff;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f5efe8; /* Light beige background matching home page */
+  font-family: 'Poppins', sans-serif; 
+}
+
+.plan-trip-header {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #5a3a29; /* Dark brown shade for consistency */
+}
+
+.plan-trip-form {
+  width: 100%;
+  max-width: 600px;
+  background-color: #ffffff;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.plan-trip-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  color: #5a3a29; /* Dark brown shade */
+}
+
+.plan-trip-form select,
+.plan-trip-form input {
+  width: 100%;
+  padding: 0.85rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #5a3a29; /* Match text color */
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.plan-trip-form select:focus,
+.plan-trip-form input:focus {
+  outline: none;
+  border-color: #a26f5a; /* Brownish accent color */
+  box-shadow: 0 0 8px rgba(162, 111, 90, 0.25); /* Subtle matching glow */
+}
+
+.plan-trip-button {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background-color: #a26f5a; /* Match button color on the home page */
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plan-trip-button:hover {
+  background-color: #8c5a47; /* Darker brown hover effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.plan-trip-footer {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #5a3a29; /* Footer text color matching home page */
+}
+
+.plan-trip-footer span {
+  margin: 0 10px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #a26f5a; /* Accent color */
+  transition: color 0.3s ease;
+}
+
+.plan-trip-footer span:hover {
+  color: #8c5a47; /* Slightly darker hover color */
+}

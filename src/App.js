@@ -9,13 +9,14 @@ import Itinerary from './components/Itinerary';
 
 const App = () => {
   const [user, setUser] = useState(null);
-
+  const [itinerary, setIntinerary] = useState(null);
+  
   return (
     <Router>
       <div>
         <nav className="navbar">
-          <Link to="/" className="nav-logo">Trip Planner</Link>
-          <div className="nav-links">
+        <Link to="/" className="nav-logo">Itinify </Link>
+        <div className="nav-links">
             <Link to="/" className="nav-link">Home</Link>
             <Link to="/itinerary" className="nav-link">Itinerary</Link>
             <Link to="/login" className="nav-link">Login</Link> {/* Add Login link */}
@@ -24,8 +25,8 @@ const App = () => {
 
         <Routes>
           <Route path="/" element={<CoverPageView />} />
-          <Route path="/plan" element={<PlanTripPage />} /> {/* Add Plan Trip route */}
-          <Route path="/itinerary" element={<ItineraryPage user={user} />} />
+          <Route path="/plan" element={<PlanTripPage onItineraryChange={setIntinerary}/>} /> {/* Add Plan Trip route */}
+          <Route path="/itinerary" element={<ItineraryPage user={user} itinerary={itinerary} />} />
           <Route path="/login" element={<Login onUserChange={setUser} />} />  {/* Add Login route */}
         </Routes>
       </div>

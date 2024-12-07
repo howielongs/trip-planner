@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/CoverPage.css';
-import logo1 from '../assets/logo1.png';
+import logo2 from '../assets/logo2.png';
 
 const CoverPage = () => {
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ const CoverPage = () => {
         </button>
       </div>
       <div className="cover-right">
-        <img src={logo1} alt="Map logo" className="cover-image" />
+        <img src={logo2} alt="Map logo" className="cover-image" />
       </div>
     </div>
   );

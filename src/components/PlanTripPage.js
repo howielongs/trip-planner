@@ -1,16 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/PlanTripPage.css';
 
-const PlanTripPage = () => {
+const PlanTripPage = ({onIntineraryChange}) => {
   const navigate = useNavigate();
   const [destination, setDestination] = useState('San Francisco');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
+  const [itinerary, setIntinerary] = useState(null);
 
-  const handleStartPlanning = () => {
-    navigate('/itinerary');
+  useEffect(() => {
+    if (onIntineraryChange) {
+      onIntineraryChange(itinerary); 
+    }
+  }, [itinerary, onIntineraryChange]);
+
+
+const handleStartPlanning = () => {
+  const formattedStartDate = startDate
+    ? new Date(startDate).toISOString().split('T')[0]
+    : null; 
+
+  const newitinerary = {
+    startDate: formattedStartDate,
+    itinerary_id: null,
   };
+  setIntinerary(newitinerary);
+  console.log(itinerary);
+  navigate('/itinerary');
+};
+
 
   return (
     <div className="plan-trip-container">
@@ -34,12 +53,6 @@ const PlanTripPage = () => {
               id="startDate"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
-            />
-            <input
-              type="date"
-              id="endDate"
-              value={endDate}
-              onChange={(e) => setEndDate(e.target.value)}
             />
           </div>
         </div>
