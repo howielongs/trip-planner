@@ -25,6 +25,13 @@ Back-End: Node.js, Google Maps API
 
 Database: SQL
 
+To Run App: 
+First cd server then input node index.js
+then Run npm start in a seperate tab
+
+If The DB is not working 
+Oppen MySQL Workbench and input the contents of SQLdump.sql. Then configure the port to be 3306.
+
 
 Contributors
 -
