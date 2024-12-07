@@ -1,0 +1,21 @@
+suggestion_id,location_name,address,tags,description,imageurl
+1,Zareen’s,"365 S California Ave, Palo Alto, CA 94306",dining,NULL,NULL
+2,"Tony’s Pizza Napoletana","1570 Stockton St, San Francisco, CA 94133",dining,NULL,NULL
+3,"House of Prime Rib","1906 Van Ness Ave, San Francisco, CA 94109",dining,NULL,NULL
+4,"San Tung","1031 Irving St, San Francisco, CA 94122",dining,NULL,NULL
+5,"Minnie Bell’s Soul Movement","5959 Shellmound St, Emeryville, CA 94608",dining,NULL,NULL
+6,"Golden Gate Bridge","San Francisco, CA 94129",sightseeing,NULL,NULL
+7,"Alcatraz Island","San Francisco, CA 94133",sightseeing,NULL,NULL
+8,"Muir Woods National Monument","1 Muir Woods Rd, Mill Valley, CA 94941",sightseeing,NULL,NULL
+9,"Fisherman’s Wharf","San Francisco, CA 94133",sightseeing,NULL,NULL
+10,"Napa Valley","Napa, CA 94559",sightseeing,NULL,NULL
+11,"Muir Woods National Monument","1 Muir Woods Rd, Mill Valley, CA 94941",nature,NULL,NULL
+12,"Stinson Beach","Calle Del Sierra, Stinson Beach, CA 94970",nature,NULL,NULL
+13,"Mount Tamalpais State Park","3801 Panoramic Hwy, Mill Valley, CA 94941",nature,NULL,NULL
+14,"Point Reyes National Seashore","1 Bear Valley Rd, Point Reyes Station, CA 94956",nature,NULL,NULL
+15,"Half Moon Bay State Beach","95 Kelly Ave, Half Moon Bay, CA 94019",nature,NULL,NULL
+16,"Westfield San Francisco Centre","865 Market St, San Francisco, CA 94103",shopping,NULL,NULL
+17,"Stanford Shopping Center","660 Stanford Shopping Center, Palo Alto, CA 94304",shopping,NULL,NULL
+18,"Santana Row","377 Santana Row, San Jose, CA 95128",shopping,NULL,NULL
+19,"Embarcadero Center","1 Embarcadero Center, San Francisco, CA 94111",shopping,NULL,NULL
+20,"Stoneridge Shopping Center","1 Stoneridge Mall Rd, Pleasanton, CA 94588",shopping,NULL,NULL

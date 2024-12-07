@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/ItineraryPage.css';
 import Sidebar from '../components/Sidebars'; // Import the Sidebar
 import MapComponent from '../components/MapComponent'; // Google Maps Component
 
-const Itinerary = () => {
+const Itinerary = ({user, itinerary}) => {
+  const navigate = useNavigate();
   const [tripTitle, setTripTitle] = useState('Trip to San Francisco'); // State for the trip title
   const [markers, setMarkers] = useState([]); // State to track map markers
 
   const handleTitleChange = (e) => {
     setTripTitle(e.target.value);
   };
-
+  const handleAddDate = () => {
+    navigate('/plan');
+  }
   // Function to add a marker to the map
   const handleAddMapMarker = (location) => {
     if (typeof location === 'string') {
@@ -33,7 +37,11 @@ const Itinerary = () => {
   return (
     <div className="itinerary-page">
       {/* Sidebar */}
-      <Sidebar onAddMapMarker={handleAddMapMarker} />
+      <Sidebar 
+        onAddMapMarker={handleAddMapMarker} 
+        user={user} 
+        itinerary={itinerary}
+      />
 
       {/* Main Content */}
       <main className="main-content">
@@ -45,7 +53,7 @@ const Itinerary = () => {
             onChange={handleTitleChange}
             className="trip-title-input"
           />
-          <button className="add-dates-button">Add Trip Dates</button>
+          <button className="add-dates-button" onClick={handleAddDate}> Add Trip Dates</button>
         </header>
 
         <section className="map-section">

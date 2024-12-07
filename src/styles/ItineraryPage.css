@@ -7,13 +7,14 @@
 .main-content {
   flex: 2; /* Take up more space for the main content */
   padding: 20px;
+  background-color: #fdf2e9;
 }
 
 .map-container {
   flex: 1; /* Allocate space for the map */
   height: auto; /* Adjust height */
   min-height: 400px; /* Ensure the map has a minimum height */
-  border-left: 1px solid #ddd; /* Optional: Add a separator */
+  border-left: 1px solid #f5efe8; /* Optional: Add a separator */
   overflow: hidden;
 }
 
@@ -27,6 +28,7 @@
 .itinerary-header h2 {
   font-size: 1.5rem;
   font-weight: bold;
+  color: #5a3a29; /* Change this to your desired color */
 }
 
 .add-dates-button {
@@ -55,7 +57,7 @@
 
 .card {
   flex: 1;
-  background-color: #f8f8f8;
+  background-color: #f5efe8;
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -95,7 +97,7 @@
   height: 400px;
   border-radius: 10px;
   overflow: hidden;
-  border: 1px solid #ddd;
+  border: 1px solid #f5efe8;
 }
 
 .trip-title-input {
@@ -154,6 +156,3 @@
 .add-location-button:hover {
   background-color: #0056b3;
 }
-
-
-
