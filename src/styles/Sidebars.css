@@ -49,6 +49,63 @@
   background-color: #4e4039; /* Match the sidebar background */
 }
 
+/* Explore Section Styling */
+.explore-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background-color: #6b584e; /* Slightly lighter card background */
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.explore-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #4e4039; /* Slightly darker card */
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.explore-card:hover {
+  transform: translateY(-5px); /* Add a slight hover effect */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.explore-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.explore-card h4 {
+  font-size: 1.1rem;
+  color: #ffffff;
+  margin: 0;
+}
+
+.explore-card p {
+  font-size: 0.9rem;
+  color: #d1c7c0;
+  margin: 0;
+}
+
+.explore-card a {
+  color: #a26f5a;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.explore-card a:hover {
+  text-decoration: underline;
+}
+
 /* Styling for Each Tab's Content */
 .explore-grid,
 .notes-content,
@@ -146,7 +203,6 @@ h3 {
 }
 
 /* Notes Section */
-/* Notes Section */
 .notes-content {
   background-color: #6b584e; /* Match other card backgrounds */
   padding: 20px;
@@ -175,14 +231,6 @@ h3 {
 
 .notes-content textarea::placeholder {
   color: #d1c7c0; /* Lighter placeholder text */
-}
-
-/* Transitions */
-.sidebar,
-.nav-item,
-.search-bar input,
-.carousel-item {
-  transition: all 0.3s ease;
 }
 
 /* Save Trip Section */
